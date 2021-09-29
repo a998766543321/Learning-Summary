@@ -9,9 +9,9 @@
 ## Indicators
   1. known as Key Performance Indicators (KPI)
   2. Three types
-     1. Automated: Scores are automatically collected using scheduled data collection jobs
-     2. Manual: Scores are entered manually or imported from a third-party source
-     3. Formula: Scores are calculated using scores of other indicators
+     1. **Automated**: Scores are automatically collected using scheduled data collection jobs
+     2. **Manual**: Scores are entered manually or imported from a third-party source
+     3. **Formula**: Scores are calculated using scores of other indicators
 
   3. Automated indicators save scores from an indicator source at a regular frequency such as daily, weekly, or monthly.
 
@@ -22,9 +22,9 @@
   1. filter or group indicator scores for more detailed analysis and groups the scores by the breakdown elements
   2. For example a country breakdown breaks down the indicator source into individual country records (breakdown elements)
   3. Three types
-     1. Automated: A breakdown source determines selectable elements
-     2. Manual: Developers define the breakdown elements and the indicator scores for each element manually instead of using records from a breakdown source
-     3. External: A JDBC data source and SQL statement retrieve breakdown elements
+     1. **Automated**: A breakdown source determines selectable elements
+     2. **Manual**: Developers define the breakdown elements and the indicator scores for each element manually instead of using records from a breakdown source
+     3. **External**: A JDBC data source and SQL statement retrieve breakdown elements
 
 ## Breakdown Sources
   1. Breakdown sources specify which unique elements a breakdown contains
