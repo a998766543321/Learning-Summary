@@ -1,4 +1,4 @@
-# ES6 Cheat Sheet
+# ES6 Summary
 
 ### Object.freeze
 ```javascript
