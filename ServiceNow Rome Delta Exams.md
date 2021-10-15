@@ -50,7 +50,7 @@
 
 > The owner of the board 
 <hr />
-
+<br />
 
 ## ITSM
 1. By default, which of the following related records are automatically moved when a problem is marked as a duplicate?
@@ -88,3 +88,39 @@
 9. Which read-only role can be assigned to any business stakeholder user to generate reports from Release Management tables to make informed decisions?  
 > sn_release_read
 <hr />
+<br />
+
+## CSM
+1. Which form view is used by the Lookup and Verify feature to display the fields in the Create Contact and Create Consumer forms, within the contextual side panel of CSM Configurable Workspace?  
+> CSM Create Contact
+<br />
+
+2. What must be specified for context entities, such as cases, so an agent can view the prioritized list of the next best actions in the workspace side panel?
+> Arbitration context engine rules
+<br />
+
+3. How do related records, displayed in the contextual side panel in CSM Configurable Workspace, dynamically change?
+> Based on the context of the current record or playbook activity
+<br />
+
+4. How many actions can a guidance for customer service agents have, using the simplified guidance framework?
+> Multiple actions
+<br />
+
+5. How can the wrap up period of an interaction be ended?
+> The system can automatically end the wrap up period after a set period.
+> Agents can end the wrap up by clicking End Wrap Up on the Interaction record. 
+<br />
+
+6. Which workspace(s) can display field values as interaction record tab titles AND display case form ribbons in the Contextual side panel?
+> CSM Configurable Workspace
+<br />
+
+7. How can agents start Conversation Autopilot?
+> By using autopilot quick actions to invoke Virtual Agent topics.
+<br />
+
+8.  Who can be supported with the business-to-business-to-consumer (B2B2C) model?
+> End consumers of a business customer
+> Employees of a business customer 
+<br />
