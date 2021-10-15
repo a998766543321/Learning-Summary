@@ -18,7 +18,11 @@
 
 4. Link unfurling enables previews of what kinds of URL links in Virtual Agent web and mobile conversations?
 
-> text, images, and videos
+> Text
+
+> Images
+
+> Videos
 <br />
 
 5. When the workflow action is canceled in Flow Designer, which property can be used to set a timeout value that overrides the default timeout?
@@ -54,7 +58,9 @@
 
 ## ITSM
 1. By default, which of the following related records are automatically moved when a problem is marked as a duplicate?
-> Related incidents, and Problem tasks
+> Related incidents
+
+> Problem tasks
 <br />
 
 2. Which UI action will confirm you are part of the assignment group on a problem record?
@@ -109,6 +115,7 @@
 
 5. How can the wrap up period of an interaction be ended?
 > The system can automatically end the wrap up period after a set period.
+
 > Agents can end the wrap up by clicking End Wrap Up on the Interaction record. 
 <br />
 
@@ -122,5 +129,6 @@
 
 8.  Who can be supported with the business-to-business-to-consumer (B2B2C) model?
 > End consumers of a business customer
+
 > Employees of a business customer 
 <br />
