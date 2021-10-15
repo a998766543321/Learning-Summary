@@ -50,3 +50,41 @@
 
 > The owner of the board 
 <hr />
+
+
+## ITSM
+1. By default, which of the following related records are automatically moved when a problem is marked as a duplicate?
+> Related incidents, and Problem tasks
+<br />
+
+2. Which UI action will confirm you are part of the assignment group on a problem record?
+> Assign to me
+<br />
+
+3. What should be configured in order to require approval of a catalog item that is created or modified in Catalog Builder prior to publishing?
+> A pre-publish flow
+<br />
+
+4. What happens on Now Mobile if there is a service catalog category with no visible items?
+> The category is not displayed
+<br />
+
+5. How could an organization measure and track article views, page views, and searches performed by unauthenticated users?
+> Guest user diagnostics
+<br />
+
+6. How could an organization organize knowledge articles in a uniform taxonomy and classification with Catalog items?
+> Associate knowledge articles to topics
+<br />
+
+7. Which feature (module) provides a central location to create, publish, and manage the CI policies that drive Configuration Item life cycle operations?
+> CMDB Data Manager
+<br />
+
+8. Which related list tracks the different types of groups assigned to a Configuration Item (CI)?
+> Teams
+<br />
+
+9. Which read-only role can be assigned to any business stakeholder user to generate reports from Release Management tables to make informed decisions?  
+> sn_release_read
+<hr />
