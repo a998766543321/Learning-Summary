@@ -77,3 +77,7 @@ Which two statements are correct during the Sprint
 Which statement best describes the Sprint Backlog?
 > It's the Sprint plan for Developers
 <br />
+
+During the Daily Scrum, a Developer says they don't know when their task will be done. What is the correct action to take? (choose the best answer)
+> The Developers decide to pair up on that task, in order to complete it by the end of the Sprint.
+<br />
