@@ -81,3 +81,42 @@ Which statement best describes the Sprint Backlog?
 During the Daily Scrum, a Developer says they don't know when their task will be done. What is the correct action to take? (choose the best answer)
 > The Developers decide to pair up on that task, in order to complete it by the end of the Sprint.
 <br />
+
+Every Development Team in Scrum should have the competencies and skills needed to deliver a "Done" Increment in a Sprint?
+> Ture
+<br />
+
+How often should Development Team members change?
+> As needed while considering any changes will result in a short-term reduction in productivity
+<br />
+
+
+A Scrum Team with 9 members is working on building a new application to support HR processes in their organization. A new Development Team member innocently adds an additional feature in the Increment which is not part of the Product Backlog. He believed it would benefit the business stakeholder and wouldn't take long. None of the other Development Team members were aware of this. This was discovered
+just before the Sprint Review. What should the Product Owner do?
+> Ask the Development Team to remove the feature from the Increment
+<br />
+
+
+By the end of the Sprint a Product Backlog item in the Sprint Backlog does not meet the team's definition of "Done". What two things should happen with the item? Select the two best answers
+
+> Estimate the amount of work remaining to make it 'Done' and add it to the Product Backlog for the Product Owner to decide what to do with it
+
+> Do not include the unfinished item in the Increment for the Sprint Review.
+<br />
+
+
+Which are the two best ways to identify that a Development Team is self-organizing? Select the two best answers
+> The Development Team is able to resolve internal conflicts between members in order to continue working.
+
+> Creativity thrives and new possibilities are explored.
+<br />
+
+
+A Scrum Team has been working on the same product for multiple Sprints. What would likely be the impact on the original Scrum Team if two new Scrum Teams where to be added to the same product?
+> Its productivity is likely to decrease. (It is because they need more time to communicate with other new teams)
+<br />
+
+
+Who is responsible for Identifying the Scrum Team
+> Product Owner along with Scrum Master
+<br />
