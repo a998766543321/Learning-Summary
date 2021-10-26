@@ -120,3 +120,9 @@ A Scrum Team has been working on the same product for multiple Sprints. What wou
 Who is responsible for Identifying the Scrum Team
 > Product Owner along with Scrum Master
 <br />
+
+What are two ways a Scrum Master serves to enable effective Scrum Teams?
+> By removing impediments that hinder the Scrum Team
+
+> By facilitating Developer decision-making.
+<br />
