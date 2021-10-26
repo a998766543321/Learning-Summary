@@ -126,3 +126,11 @@ What are two ways a Scrum Master serves to enable effective Scrum Teams?
 
 > By facilitating Developer decision-making.
 <br />
+
+Who is responsible for managing the progress of work during a Sprint?
+> The Developer (Not the product owner)
+<br />
+
+Which statement best describes the Sprint Review?
+> It is when the Scrum Team and stakeholders inspect the outcome of a Sprint and figure out what to do next.
+<br />
