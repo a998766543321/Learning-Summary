@@ -134,3 +134,15 @@ Who is responsible for managing the progress of work during a Sprint?
 Which statement best describes the Sprint Review?
 > It is when the Scrum Team and stakeholders inspect the outcome of a Sprint and figure out what to do next.
 <br />
+
+If an inspector determines that one or more aspects of a process deviate outside acceptable limits and that the resulting product will be unacceptable,
+> the process or the material being processed must be adjusted.
+<br />
+
+Transparency requires those aspects be defined by
+> a common standard so observers share a common understanding of what is being developed.
+<br />
+
+Scrum users must frequently inspect Scrum artifacts and progress
+> toward a Sprint Goal to detect undesirable variances.
+<br />
