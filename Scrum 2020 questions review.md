@@ -146,3 +146,15 @@ Transparency requires those aspects be defined by
 Scrum users must frequently inspect Scrum artifacts and progress
 > toward a Sprint Goal to detect undesirable variances.
 <br />
+
+Having more than ? members requires too much coordination.
+> Nine
+<br />
+
+Who can force the Development Team to work from a different set of requirements.
+> No one
+<br />
+
+The Product Owner is responsible for maximizing the value of the product resulting from work of the Development Team.
+> True
+<br />
