@@ -160,8 +160,10 @@ The Product Owner is responsible for maximizing the value of the product resulti
 <br />
 
 <hr />
+
 What two techniques could the Scrum Master use when the Scrum Team gets caught in an internal disagreement about which development techniques to apply?
 (Choose the best two answers.)
+
 > A. Involve the complete Development Team.
 
 > B. Use coaching techniques; such as open questions and active listening.
