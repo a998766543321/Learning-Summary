@@ -150,3 +150,51 @@ public class CartController {
 } 
     
 ```
+## AOP
+- Example of time tracking of a annotated method
+    
+```java
+// Define a new annotation
+@Target(ElementType.METHOD)
+@Retention(RetentionPolicy.RUNTIME)
+public @interface TimeMonitor {}
+
+
+
+@Aspect
+@Component
+public class TimeMonitorAspect {
+
+    // Aspects insert additional logic during the execution of the program at a certain point. This point is known as the Join point
+    // @Around
+
+
+    // Pointcut determines whether the Advice needs to be executed or not
+    // @annotation(com.packt.modern.api.TimeMonitor)
+
+
+    // The Advice is an action taken by the Aspect at a specific time (Joinpoint)
+    // logTime method
+
+    @Around("@annotation(com.packt.modern.api.TimeMonitor)")
+    public Object logTime(ProceedingJoinPoint joinPoint) throws Throwable {
+        long start = System.currentTimeMillis();
+        Object proceed = joinPoint.proceed();
+        long executionTime = System.currentTimeMillis() - start;
+        System.out.println(joinPoint.getSignature() + "takes: " + executionTime + "ms ");
+        return proceed;
+    }
+}
+
+
+
+class Test {
+
+    @TimeMonitor
+    public void performSomeTask() {
+        // Business Logic
+    }
+}  
+    
+    
+```
