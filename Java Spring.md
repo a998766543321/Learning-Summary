@@ -43,3 +43,69 @@ public class AppConfig {
     }
 }
 ```
+
+### @Autowired
+- allows you to define the configuration part in a bean's class itself instead of writing a separate configuration class annotated with @Configuration
+- can be applied to a field
+- only work if there is no constructor or setter method to inject the dependent bean
+
+```java
+@Component
+public class CartService {
+    private CartRepository repository;
+    private ARepository aRepository;
+    private BRepository bRepository;
+    private CRepository cRepository;
+    
+    @Autowired // member(field) based auto wiring
+    private AnyBean anyBean;
+    
+    @Autowired // constructor based autowired
+    public CartService(CartRepository cartRepository) {
+        this.repository = repository;
+    }
+    
+    @Autowired // Setter based auto wiring
+    public void setARepository(ARepository aRepository) {
+        this.aRepository = aRepository;
+    }
+    
+    @Autowired // method based auto wiring
+    public void xMethod(BRepository bRepository, CRepository cRepository) {
+        this.bRepository = bRepository;
+        Learning the basic concepts of the Spring Framework 43
+        this.cRepository = cRepository;
+    }
+}
+```
+
+- if more than one instnace of a type is defined, use @Qualifier
+
+``` java
+
+@Configuration
+public class AppConfig {
+    
+    @Bean
+    @Qualifier("cartService1")
+    public CartService cartService1() {
+        return new CartServiceImpl1();
+    }
+
+    @Bean
+    @Qualifier("cartService2")
+    public CartService cartService2() {
+        return new CartServiceImpl2();
+    }
+}
+
+@Controller
+public class CartController {
+    @Autowired
+    private CartService service1;
+    @Autowired
+    private CartService service2;
+}
+
+
+```
