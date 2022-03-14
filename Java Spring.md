@@ -198,3 +198,13 @@ class Test {
     
     
 ```
+
+## Flow of a user request in Spring MVC for the REST controller
+    
+1. The user sends the HTTP request, which is received by **DispatcherServlet**.
+2. **DispatcherServlet** passes the baton to **HandlerMapping**. **HandlerMapping** does the job of finding the correct controller for the requested URI and passes it back to **DispatcherServlet**.
+3. **DispatcherServlet** then makes use of **HandlerAdaptor** to handle Controller.
+4. **HandlerAdaptor** calls the appropriate method inside Controller.
+5. Controller then executes the associated business logic and forms the response.
+6. Spring makes use of the marshaling/unmarshalling of request and response objects for JSON/XML conversion from Java and vice versa.
+    
