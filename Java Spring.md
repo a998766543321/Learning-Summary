@@ -79,7 +79,7 @@ public class CartService {
 }
 ```
 
-- if more than one instnace of a type is defined, use @Qualifier
+- @Qualifier helps you to resolve which type should be used when multiple beans are available for injection
 
 ``` java
 
@@ -108,4 +108,25 @@ public class CartController {
 }
 
 
+```
+- The @Primary annotation allows you to set one of the type's beans as the default
+
+``` java
+@Configuration
+public class AppConfig {
+    @Bean
+    @Primary
+    public CartService cartService1() {
+        return new CartServiceImpl1();
+    }
+    @Bean
+    public CartService cartService2() {
+        return new CartServiceImpl2();
+    }
+}
+@Controller
+public class CartController {
+    @Autowired
+    private CartService service;
+}
 ```
