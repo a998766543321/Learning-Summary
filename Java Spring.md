@@ -1,7 +1,9 @@
-# IoC containers
+# Spring Basics
+
+## IoC containers
 - The Spring Framework's IoC container core is defined in two packages: 
-1. org.springframework.beans and org.springframework.context.BeanFactory (org.springframework.beans.factory.BeanFactory) 
-2. ApplicationContext (org.springframework.context.ApplicationContext) are two important interfaces that provide a basis for IoC containers.
+- org.springframework.beans and org.springframework.context.BeanFactory (org.springframework.beans.factory.BeanFactory) 
+- ApplicationContext (org.springframework.context.ApplicationContext) are two important interfaces that provide a basis for IoC containers.
 
 ## BeanFactory
 - provides the configuration framework and basic functionality and takes care of bean instantiation and wiring
@@ -78,7 +80,7 @@ public class CartService {
     }
 }
 ```
-
+### @Qualifier
 - @Qualifier helps you to resolve which type should be used when multiple beans are available for injection
 
 ``` java
@@ -109,6 +111,7 @@ public class CartController {
 
 
 ```
+### @Primary
 - The @Primary annotation allows you to set one of the type's beans as the default
 
 ``` java
@@ -129,4 +132,21 @@ public class CartController {
     @Autowired
     private CartService service;
 }
+```
+
+### @Value
+- Spring supports the use of external property files: <xyz>.properties or <xyz>.yml.
+- Now, you want to use the value of any property in your code. You can achieve this using the @Value annotation.
+   
+```java
+@Configuration
+@PropertySource("classpath:application.properties")
+public class AppConfig {}
+
+@Controller
+public class CartController {
+    @Value("${default.currency}")
+    String defaultCurrency;
+} 
+    
 ```
