@@ -31,6 +31,7 @@ public class BeanInterfaceImpl implements BeanInterface {
 
 @Configuration
 public class AppConfig {
+    // SampleBean has two bean names: sampleBean and sb
     @Bean(initMethod = "init", destroyMethod = "destroy", name = {"sampleBean", "sb"})
     @Description("Demonstrate a simple bean")
     public SampleBean sampleBean() {
