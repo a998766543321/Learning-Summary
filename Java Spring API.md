@@ -10,6 +10,12 @@
 
 ## ApplicationContext
 - ApplicationContext can also take care of bean instantiation and wiring
+- provides more enterprise-specific functionalities, as follows:
+  - Integrated life cycle management
+  - Automatic registration of **BeanPostProcessor** and **BeanFactoryPostProcessor**
+  - Internationalization (message resource handling) with easy access to MessageSource
+  - Events publication using a built-in ApplicationEvent
+  - Provides WebApplicationContext, an application layer specific context for web applications
 
 ## Configuration metadata
 - tells ApplicationContext to know about what beans to instantiate, assemble, and configure
