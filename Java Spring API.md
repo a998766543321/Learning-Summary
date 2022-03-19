@@ -217,6 +217,10 @@ class Test {
   
   
 # API Implementation 
+
+  ## Database Migration 
+  - Can use Flyway
+  - This helps maintain the database and maintains a database changes history that allows rollbacks, version upgrades, and so on
   
 ## Data persistence
 ### @Entity
