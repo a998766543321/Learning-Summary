@@ -213,4 +213,72 @@ class Test {
 4. **HandlerAdaptor** calls the appropriate method inside Controller.
 5. Controller then executes the associated business logic and forms the response.
 6. Spring makes use of the marshaling/unmarshalling of request and response objects for JSON/XML conversion from Java and vice versa.
-    
+
+  
+  
+# API Implementation 
+  
+## Data persistence
+### @Entity
+
+  ``` java
+  
+  @Entity
+  @Table(name = "cart")
+  public class CartEntity {
+
+    @Id
+    @GeneratedValue
+    @Column(name = "ID", updatable = false, nullable = false)
+    private UUID id;
+
+    @OneToOne
+    @JoinColumn(name = "USER_ID", referencedColumnName = "ID")
+    private UserEntity user;
+
+    @ManyToMany(
+        cascade = CascadeType.ALL
+    )
+    @JoinTable(
+        name = "CART_ITEM",
+        joinColumns = @JoinColumn(name = "CART_ID"),
+        inverseJoinColumns = @JoinColumn(name = "ITEM_ID")
+    )
+    private List<ItemEntity> items = Collections.emptyList();
+  
+    // Omited the setter and getter functions
+  }
+  ```
+  #### @one-to-one 
+  - mapping the Cart entity to the User Entity
+  
+  #### @many-to-many 
+  - mapping the Cart entity to Item Entity. The ItemEntity list is also associated with @JoinTable, because you are using the CART_ITEM join table to map the cart and product items based on the CART_ID and ITEM_ID columns in their respective tables.
+  
+  
+  ``` java
+  
+  @Entity
+  @Table(name = "user")
+  public class UserEntity {
+    ...
+  
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, orphanRemoval = true)
+    private List<CardEntity> cards;
+
+    @OneToOne(mappedBy = "user", fetch = FetchType.LAZY, orphanRemoval = true)
+    private CartEntity cart;
+
+    @OneToMany(mappedBy = "userEntity", fetch = FetchType.LAZY, orphanRemoval = true)
+    private List<OrderEntity> orders;
+  
+    ...
+  }
+  ```
+  
+  #### fetch = FetchType.LAZY
+  - means the user's cart will be loaded only when asked for explicitly
+  
+  #### orphanRemoval = true
+  - you want to remove the cart if it is not referenced by the user
+  
