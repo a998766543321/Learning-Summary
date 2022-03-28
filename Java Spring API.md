@@ -350,7 +350,14 @@ class Test {
 
   @EnableWebSecurity
   public class SecurityConfig extends WebSecurityConfigurerAdapter {
-
+        
+      // Expose the bean to be used in the AuthenticationManager.authenticate()
+      @Bean
+      @Override
+      protected UserDetailsService userDetailsService() {
+        return userService;
+      }
+  
       @Override
       protected void configure(HttpSecurity http) throws Exception {
   
@@ -450,6 +457,50 @@ class Test {
   
   ```
   
+  7. Create the **JwtAuthenticationFilter** class which extends BasicAuthenticationFilter to verify the JWT
+  
+  ``` java
+  
+  public class JwtAuthenticationFilter extends BasicAuthenticationFilter {
+
+    public JwtAuthenticationFilter(AuthenticationManager authenticationManager) {
+      super(authenticationManager);
+    }
+
+    @Override
+    protected void doFilterInternal(HttpServletRequest req, HttpServletResponse res,
+        FilterChain chain) throws IOException, ServletException {
+      String header = req.getHeader(AUTHORIZATION);
+      if (Objects.isNull(header) || !header.startsWith(TOKEN_PREFIX)) {
+        chain.doFilter(req, res);
+        return;
+      }
+
+      Optional<UsernamePasswordAuthenticationToken> authentication = getAuthentication(req);
+      authentication.ifPresentOrElse(e -> SecurityContextHolder.getContext().setAuthentication(e),
+          SecurityContextHolder::clearContext);
+      chain.doFilter(req, res);
+    }
+
+    private Optional<UsernamePasswordAuthenticationToken> getAuthentication(
+        HttpServletRequest request) {
+      String token = request.getHeader(AUTHORIZATION);
+      if (Objects.nonNull(token)) {
+        DecodedJWT jwt = JWT.require(Algorithm.HMAC512(SECRET_KEY.getBytes(StandardCharsets.UTF_8)))
+            .build()
+            .verify(token.replace(TOKEN_PREFIX, ""));
+        String user = jwt.getSubject();
+        @SuppressWarnings("unchecked")
+        List<String> authorities = (List) jwt.getClaim(ROLE_CLAIM);
+        if (Objects.nonNull(user)) {
+          return Optional.of(new UsernamePasswordAuthenticationToken(
+              user, null, Objects.nonNull(authorities) ? authorities.stream().map(
+              SimpleGrantedAuthority::new).collect(Collectors.toList()) : Collections.emptyList()));
+        }
+      }
+      return Optional.empty();
+    }
+  }
   
   
-  7. 
+  ```
