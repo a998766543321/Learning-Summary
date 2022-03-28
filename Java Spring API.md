@@ -337,8 +337,8 @@ class Test {
   2. Add the annotation **@EnableWebSecurity** to this class
   3. Override the **configure(HttpSecurity http)** method
   4. Register 2 custom filters by using the addFilter method (**LoginFilter** and **JwtAuthenticationFilter**) 
-    - LoginFilter for issuing the JWT when the user entered the correct username and password
-    - JwtAuthenticationFilter for verifing the JWT in the Authorization header. Bearer ${JWT token}
+      - LoginFilter for issuing the JWT when the user entered the correct username and password
+      - JwtAuthenticationFilter for verifing the JWT in the Authorization header. Bearer ${JWT token}
   
   ``` java
   
@@ -351,9 +351,8 @@ class Test {
   public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
       @Override
-      protected void configure(HttpSecurity http) throws
-      Exception {
-
+      protected void configure(HttpSecurity http) throws Exception {
+  
           // sign in url does not require authentication
           String SIGN_UP_URL = "/api/v1/users";
 
