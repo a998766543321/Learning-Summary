@@ -332,6 +332,7 @@ class Test {
     12. ExceptionTranslationFilter
     13. FilterSecurityInterceptor
     14. Finally reaches the controller
+  
   ### JWT Auth Implementation
   0. Add the **spring-boot-starter-spring-security** dependency into the project
   1. Create a **SecurityConfig** class class, which extends **WebSecurityConfigurerAdapter**
@@ -516,3 +517,5 @@ class Test {
   
   
   ```
+  ### O-Auth Implementation
+  1. Add **spring-boot-starter-oauth2-resource-server** dependency to the project
