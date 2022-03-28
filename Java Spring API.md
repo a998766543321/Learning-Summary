@@ -317,7 +317,7 @@ class Test {
   ### Opaque tokens
     - Spring Security also provides support for opaque tokens
     - similar to JWTs. The main difference between them is how information is read from the token
-  ### Security Filter Chain
+  ### Security Filter Chain (execute them in order)
     1. WebAsyncManagerIntegrationFilter
     2. SecurityContextPersistenceFilter
     3. HeaderWriterFilter
@@ -458,6 +458,7 @@ class Test {
   ```
   
   7. Create the **JwtAuthenticationFilter** class which extends BasicAuthenticationFilter to verify the JWT
+  8. Override the **doFilterInternal()** method
   
   ``` java
   
@@ -470,6 +471,7 @@ class Test {
     @Override
     protected void doFilterInternal(HttpServletRequest req, HttpServletResponse res,
         FilterChain chain) throws IOException, ServletException {
+  
       String header = req.getHeader(AUTHORIZATION);
       if (Objects.isNull(header) || !header.startsWith(TOKEN_PREFIX)) {
         chain.doFilter(req, res);
@@ -477,26 +479,36 @@ class Test {
       }
 
       Optional<UsernamePasswordAuthenticationToken> authentication = getAuthentication(req);
+  
+      // clear the context if not valid
       authentication.ifPresentOrElse(e -> SecurityContextHolder.getContext().setAuthentication(e),
           SecurityContextHolder::clearContext);
+  
       chain.doFilter(req, res);
     }
 
-    private Optional<UsernamePasswordAuthenticationToken> getAuthentication(
-        HttpServletRequest request) {
+    private Optional<UsernamePasswordAuthenticationToken> getAuthentication(HttpServletRequest request) {
+  
       String token = request.getHeader(AUTHORIZATION);
       if (Objects.nonNull(token)) {
+  
+        // verify() performs the verification of the given token and returns a DecodedJWT instance
+        // If verification fails, it returns JWTVerificationException
         DecodedJWT jwt = JWT.require(Algorithm.HMAC512(SECRET_KEY.getBytes(StandardCharsets.UTF_8)))
             .build()
-            .verify(token.replace(TOKEN_PREFIX, ""));
+            .verify(token.replace("Bearer", ""));
+  
         String user = jwt.getSubject();
+  
         @SuppressWarnings("unchecked")
         List<String> authorities = (List) jwt.getClaim(ROLE_CLAIM);
+        
         if (Objects.nonNull(user)) {
           return Optional.of(new UsernamePasswordAuthenticationToken(
               user, null, Objects.nonNull(authorities) ? authorities.stream().map(
               SimpleGrantedAuthority::new).collect(Collectors.toList()) : Collections.emptyList()));
         }
+  
       }
       return Optional.empty();
     }
