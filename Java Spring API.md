@@ -309,3 +309,12 @@ class Test {
   1. HttpHandler: An interface that is an abstraction of a request/response handler over different HTTP server APIs, such as Netty or Tomcat
   2. WebHandler: Provides support for user sessions, request and session attributes, a locale and principal for the request, form data, and so on
   3. Codecs: (Encoder, Decoder, HttpMessageWriter, HttpMessageReader, and DataBuffer) for the serialization and deserialization of content at both the server and client level for the request and response
+
+# Secruity
+  ## Access Token 
+  ### JavaScript Object Notation (JSON) Web Token (JWT)
+    - Spring Security provide the servlet pre-filters that are processed before the request reaches **DispatcherServlet**
+  ### Opaque tokens
+    - Spring Security also provides support for opaque tokens
+    - similar to JWTs. The main difference between them is how information is read from the token
+  
