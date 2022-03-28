@@ -473,8 +473,8 @@ class Test {
     protected void doFilterInternal(HttpServletRequest req, HttpServletResponse res,
         FilterChain chain) throws IOException, ServletException {
   
-      String header = req.getHeader(AUTHORIZATION);
-      if (Objects.isNull(header) || !header.startsWith(TOKEN_PREFIX)) {
+      String header = req.getHeader("Authorization");
+      if (Objects.isNull(header) || !header.startsWith("Bearer ")) {
         chain.doFilter(req, res);
         return;
       }
@@ -490,19 +490,21 @@ class Test {
 
     private Optional<UsernamePasswordAuthenticationToken> getAuthentication(HttpServletRequest request) {
   
-      String token = request.getHeader(AUTHORIZATION);
+      String token = request.getHeader("Authorization");
+      String SECRET_KEY = "SECRET_KEY";
+  
       if (Objects.nonNull(token)) {
   
         // verify() performs the verification of the given token and returns a DecodedJWT instance
         // If verification fails, it returns JWTVerificationException
         DecodedJWT jwt = JWT.require(Algorithm.HMAC512(SECRET_KEY.getBytes(StandardCharsets.UTF_8)))
             .build()
-            .verify(token.replace("Bearer", ""));
+            .verify(token.replace("Bearer ", ""));
   
         String user = jwt.getSubject();
   
         @SuppressWarnings("unchecked")
-        List<String> authorities = (List) jwt.getClaim(ROLE_CLAIM);
+        List<String> authorities = (List) jwt.getClaim("roles");
         
         if (Objects.nonNull(user)) {
           return Optional.of(new UsernamePasswordAuthenticationToken(
