@@ -333,6 +333,7 @@ class Test {
     13. FilterSecurityInterceptor
     14. Finally reaches the controller
   ### JWT Auth Implementation
+  0. Add the **spring-boot-starter-spring-security** dependency into the project
   1. Create a **SecurityConfig** class class, which extends **WebSecurityConfigurerAdapter**
   2. Add the annotation **@EnableWebSecurity** to this class
   3. Override the **configure(HttpSecurity http)** method
