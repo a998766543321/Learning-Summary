@@ -322,6 +322,7 @@ class Test {
       - Payload -- Contains the sets of claim
       - Signature -- Verify the header and payload data
     - * JWT header and payload are not encrypted, they are just base64 encoded
+    - We may encrypt the JWT payload manually if there is sensitive data inside it
   
   #### Claim
     - an authority in the form of permissions or rights to carry out any activity or access any information
