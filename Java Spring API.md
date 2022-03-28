@@ -317,4 +317,18 @@ class Test {
   ### Opaque tokens
     - Spring Security also provides support for opaque tokens
     - similar to JWTs. The main difference between them is how information is read from the token
-  
+  ### Security Filter Chain
+    1. WebAsyncManagerIntegrationFilter
+    2. SecurityContextPersistenceFilter
+    3. HeaderWriterFilter
+    4. CorsFilter
+    5. CsrfFilter
+    6. LogoutFilter
+    7. BearerTokenAuthenticationFilter
+    8. RequestCacheAwareFilter
+    9. SecurityContextHolderAwareRequestFilter
+    10. AnonymousAuthenticationFilter
+    11. SessionManagementFilter
+    12. ExceptionTranslationFilter
+    13. FilterSecurityInterceptor
+    14. Finally reaches the controller
