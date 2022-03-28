@@ -370,17 +370,26 @@ class Test {
   }
   ```
   
-  5. Create the LoginFilter class which extends the **UsernamePasswordAuthenticationFilter**
+  5. Create the **LoginFilter** class which extends the **UsernamePasswordAuthenticationFilter**
+  6. Override the **attemptAuthentication()** and **successfulAuthentication()**
+  
   ``` java
   
   public class LoginFilter extends UsernamePasswordAuthenticationFilter {
 
     private final AuthenticationManager authenticationManager;
+  
+    // JwtManager allows you to create a JWT based on the given org.springframework.security.core.userdetails.User.
     private final JwtManager tokenManager;
+  
     private final ObjectMapper mapper;
 
     public LoginFilter(AuthenticationManager authenticationManager, JwtManager tokenManager,
         ObjectMapper mapper) {
+    
+      // Token login URL
+      String TOKEN_URL = "/api/v1/auth/token";
+  
       this.authenticationManager = authenticationManager;
       this.tokenManager = tokenManager;
       this.mapper = mapper;
@@ -390,11 +399,18 @@ class Test {
     @Override
     public Authentication attemptAuthentication(HttpServletRequest req,
         HttpServletResponse res) throws AuthenticationException {
+  
       if (!req.getMethod().equals(HttpMethod.POST.name())) {
         throw new MethodNotAllowedException(req.getMethod(), List.of(HttpMethod.POST));
       }
       try (InputStream is = req.getInputStream()) {
+  
+        // SignInReq is a Plain Old Java Object (POJO) that contains the username and password fields.
+        // Created on our own
         SignInReq user = new ObjectMapper().readValue(is, SignInReq.class);
+  
+        // We simply use it to authenticate by passing the username, password, and authorities
+        // authorities is optional
         return authenticationManager.authenticate(
             new UsernamePasswordAuthenticationToken(
                 user.getUsername(),
@@ -406,14 +422,22 @@ class Test {
       }
     }
 
+    // Once the login is successful, we need to return a JWT in response.
     @Override
     protected void successfulAuthentication(HttpServletRequest req,
         HttpServletResponse res,
         FilterChain chain,
         Authentication auth) throws IOException {
+  
       User principal = (User) auth.getPrincipal();
+  
+      // Create the JWT token
       String token = tokenManager.create(principal);
+      
+      // SignedInUser is a POJO that contains the username and token fields
+      // Created on our own
       SignedInUser user = new SignedInUser().username(principal.getUsername()).accessToken(token);
+  
       res.setContentType(APPLICATION_JSON_VALUE);
       res.setCharacterEncoding("UTF-8");
       res.getWriter().print(mapper.writeValueAsString(user));
@@ -421,9 +445,8 @@ class Test {
     }
   }
   
-  
   ```
   
   
   
-  6. 
+  7. 
