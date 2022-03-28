@@ -312,8 +312,24 @@ class Test {
 
 # Secruity
   ## Access Token 
+  
   ### JavaScript Object Notation (JSON) Web Token (JWT)
     - Spring Security provide the servlet pre-filters that are processed before the request reaches **DispatcherServlet**
+    - A JWT is an encoded string that contains of set of claims
+    - These claims are either digitally signed by a JSON Web Signature (JWS) or encrypted by JSON Web Encryption (JWE).
+    - Composed of three parts
+      - Header -- Define the type and the signing algorithm 
+      - Payload -- Contains the sets of claim
+      - Signature -- Verify the header and payload data
+    - * JWT header and payload are not encrypted, they are just base64 encoded
+  
+  #### Claim
+    - an authority in the form of permissions or rights to carry out any activity or access any information
+    - represented as a key-value pair
+      - The key contains the claim name
+      - value contains the claim that can be a valid JSON value
+    - can also be metadata about the JWT
+  
   ### Opaque tokens
     - Spring Security also provides support for opaque tokens
     - similar to JWTs. The main difference between them is how information is read from the token
