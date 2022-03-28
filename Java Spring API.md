@@ -299,3 +299,11 @@ class Test {
   #### orphanRemoval = true
   - you want to remove the cart if it is not referenced by the user
   
+# Reactive API
+  ## Reactive Core
+  ### Web requests handling
+  A web application needs three levels of support for serving HTTP web requests
+  
+  1. HttpHandler: An interface that is an abstraction of a request/response handler over different HTTP server APIs, such as Netty or Tomcat
+  2. WebHandler: Provides support for user sessions, request and session attributes, a locale and principal for the request, form data, and so on
+  3. Codecs: (Encoder, Decoder, HttpMessageWriter, HttpMessageReader, and DataBuffer) for the serialization and deserialization of content at both the server and client level for the request and response
