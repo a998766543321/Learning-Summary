@@ -370,4 +370,60 @@ class Test {
   }
   ```
   
-  5. 
+  5. Create the LoginFilter class which extends the **UsernamePasswordAuthenticationFilter**
+  ``` java
+  
+  public class LoginFilter extends UsernamePasswordAuthenticationFilter {
+
+    private final AuthenticationManager authenticationManager;
+    private final JwtManager tokenManager;
+    private final ObjectMapper mapper;
+
+    public LoginFilter(AuthenticationManager authenticationManager, JwtManager tokenManager,
+        ObjectMapper mapper) {
+      this.authenticationManager = authenticationManager;
+      this.tokenManager = tokenManager;
+      this.mapper = mapper;
+      super.setFilterProcessesUrl(TOKEN_URL);
+    }
+
+    @Override
+    public Authentication attemptAuthentication(HttpServletRequest req,
+        HttpServletResponse res) throws AuthenticationException {
+      if (!req.getMethod().equals(HttpMethod.POST.name())) {
+        throw new MethodNotAllowedException(req.getMethod(), List.of(HttpMethod.POST));
+      }
+      try (InputStream is = req.getInputStream()) {
+        SignInReq user = new ObjectMapper().readValue(is, SignInReq.class);
+        return authenticationManager.authenticate(
+            new UsernamePasswordAuthenticationToken(
+                user.getUsername(),
+                user.getPassword(),
+                Collections.emptyList())
+        );
+      } catch (IOException e) {
+        throw new RuntimeException(e);
+      }
+    }
+
+    @Override
+    protected void successfulAuthentication(HttpServletRequest req,
+        HttpServletResponse res,
+        FilterChain chain,
+        Authentication auth) throws IOException {
+      User principal = (User) auth.getPrincipal();
+      String token = tokenManager.create(principal);
+      SignedInUser user = new SignedInUser().username(principal.getUsername()).accessToken(token);
+      res.setContentType(APPLICATION_JSON_VALUE);
+      res.setCharacterEncoding("UTF-8");
+      res.getWriter().print(mapper.writeValueAsString(user));
+      res.getWriter().flush();
+    }
+  }
+  
+  
+  ```
+  
+  
+  
+  6. 
