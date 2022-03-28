@@ -332,3 +332,42 @@ class Test {
     12. ExceptionTranslationFilter
     13. FilterSecurityInterceptor
     14. Finally reaches the controller
+  ### JWT Auth Implementation
+  1. Create a **SecurityConfig** class class, which extends **WebSecurityConfigurerAdapter**
+  2. Add the annotation **@EnableWebSecurity** to this class
+  3. Override the **configure(HttpSecurity http)** method
+  4. Register 2 custom filters by using the addFilter method (**LoginFilter** and **JwtAuthenticationFilter**) 
+    - LoginFilter for issuing the JWT when the user entered the correct username and password
+    - JwtAuthenticationFilter for verifing the JWT in the Authorization header. Bearer ${JWT token}
+  
+  ``` java
+  
+  import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+  import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+  import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+  import org.springframework.http.HttpMethod;
+
+  @EnableWebSecurity
+  public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+      @Override
+      protected void configure(HttpSecurity http) throws
+      Exception {
+
+          // sign in url does not require authentication
+          String SIGN_UP_URL = "/api/v1/users";
+
+          http.authorizeRequests()
+              .antMatchers(HttpMethod.POST, SIGN_UP_URL).permitAll()
+              .anyRequest().authenticated()
+              .and()
+              // Register the custom filters here
+              .addFilter(new LoginFilter(super.authenticationManager(), mapper))
+              .addFilter(new JwtAuthenticationFilter(super.authenticationManager()))
+              .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+      }
+
+  }
+  ```
+  
+  5. 
