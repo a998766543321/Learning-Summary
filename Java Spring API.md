@@ -442,6 +442,9 @@ class Test {
       res.setCharacterEncoding("UTF-8");
       res.getWriter().print(mapper.writeValueAsString(user));
       res.getWriter().flush();
+    
+      // The client receives the username and token as a response after successful authentication 
+      // then can then use this token in the Authorization header by prefixing the token value with "Bearer".
     }
   }
   
