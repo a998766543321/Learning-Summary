@@ -538,3 +538,8 @@ class Test {
   ```
   ### O-Auth Implementation
   1. Add **spring-boot-starter-oauth2-resource-server** dependency to the project
+
+  
+  ## Security Notes
+  1. A failed authentication should return HTTP (status 401 unauthorized), and a failed authorization should return HTTP status 403 (forbidden), which means the user is authenticated but does not have the required authority/role to access the resource.
+  2. A role is an authority that has the ROLE_ prefix (configurable)
