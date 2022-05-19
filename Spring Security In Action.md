@@ -30,24 +30,38 @@ int keyLength = keyGenerator.getKeyLength();
 
 ## Spring Security Encryption
 1. BytesEncryptor for byte[] data
-2. TextEncryptor for String data
-3. Encryptors.standard() for 256-byte AES encryption + cipher block chaining (CBC)
-``` java
-String salt = KeyGenerators.string().generateKey();
-String password = "secret";
-String valueToEncrypt = "HELLO";
+    1. Encryptors.standard() for 256-byte AES encryption + cipher block chaining (CBC)
+    ``` java
+    String salt = KeyGenerators.string().generateKey();
+    String password = "secret";
+    String valueToEncrypt = "HELLO";
 
-BytesEncryptor e = Encryptors.standard(password, salt);
-byte [] encrypted = e.encrypt(valueToEncrypt.getBytes());
-byte [] decrypted = e.decrypt(encrypted);
-```
-4. Encryptors.stronger() for 256-byte AES encryption + Galois/Counter Mode (GCM)
-``` java
-String salt = KeyGenerators.string().generateKey();
-String password = "secret";
-String valueToEncrypt = "HELLO";
+    BytesEncryptor e = Encryptors.standard(password, salt);
+    byte [] encrypted = e.encrypt(valueToEncrypt.getBytes());
+    byte [] decrypted = e.decrypt(encrypted);
+    ```
+    2. Encryptors.stronger() for 256-byte AES encryption + Galois/Counter Mode (GCM)
+    ``` java
+    String salt = KeyGenerators.string().generateKey();
+    String password = "secret";
+    String valueToEncrypt = "HELLO";
 
-BytesEncryptor e = Encryptors.stronger(password, salt);
-byte [] encrypted = e.encrypt(valueToEncrypt.getBytes());
-byte [] decrypted = e.decrypt(encrypted);
-```
+    BytesEncryptor e = Encryptors.stronger(password, salt);
+    byte [] encrypted = e.encrypt(valueToEncrypt.getBytes());
+    byte [] decrypted = e.decrypt(encrypted);
+    ```
+3. TextEncryptor for String data
+    1.   Encryptors.text()
+    ```java
+    String salt = KeyGenerators.string().generateKey();
+    String password = "secret";
+    String valueToEncrypt = "HELLO";
+    TextEncryptor e = Encryptors.text(password, salt);
+    String encrypted = e.encrypt(valueToEncrypt);
+    String decrypted = e.decrypt(encrypted);
+    ```
+    2.   Encryptors.delux() like stronger() in BytesEncryptor
+    3.   Encryptors.queryableText()
+        1.   Used in OAuth API key
+
+
