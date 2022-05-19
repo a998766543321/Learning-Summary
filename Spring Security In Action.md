@@ -56,12 +56,14 @@ int keyLength = keyGenerator.getKeyLength();
     String salt = KeyGenerators.string().generateKey();
     String password = "secret";
     String valueToEncrypt = "HELLO";
+    
     TextEncryptor e = Encryptors.text(password, salt);
     String encrypted = e.encrypt(valueToEncrypt);
     String decrypted = e.decrypt(encrypted);
     ```
     2.   Encryptors.delux() like stronger() in BytesEncryptor
     3.   Encryptors.queryableText()
-        1.   Used in OAuth API key
+        1.   This encryptor guarantees that sequential encryption operations will generate the same output for the same input
+        2.   Used in OAuth API key
 
 
