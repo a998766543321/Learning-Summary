@@ -63,7 +63,7 @@ int keyLength = keyGenerator.getKeyLength();
     ```
     2.   Encryptors.delux() like stronger() in BytesEncryptor
     3.   Encryptors.queryableText()
-            1.   This encryptor guarantees that sequential encryption operations will generate the same output for the same input
-            2.   Used in OAuth API key
+            -  This encryptor guarantees that sequential encryption operations will generate the same output for the same input
+            -  Used in OAuth API key
 
 
