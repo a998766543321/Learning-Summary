@@ -66,4 +66,6 @@ int keyLength = keyGenerator.getKeyLength();
             -  This encryptor guarantees that sequential encryption operations will generate the same output for the same input
             -  Used in OAuth API key
 
+## Principal
+- The user requesting access to the application is called a principal
 
