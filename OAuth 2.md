@@ -15,8 +15,32 @@
 * OAuth 2 offers multiple possibilities for obtaining a token, called grants
 
 ### OAuth 2 grants
-1. Authorization code
-2. Password
+1. [Authorization code](#authorizationCode)
+2. [Password](#password)
+    * less secure than authorization code since the user needs to share user credentials with the client
 3. Refresh token
-4. Client credentials
+4. [Client credentials](#clientCredentials)
+    * Only used in system to system authorization.
+    * No user credentials and refresh token invlovled
 
+#### <a name="authorizationCode">Authorization code flow implementation</a>
+1. The user makes the authentication request with the authorization code grant type
+    * The user doesn’t send the credentials to the client but to the authorization server directly
+2. The client obtains an access token with the authorization code grant type
+    * The client sends the access code obtained in step 1 to the authorization server
+3. The client calls the protected resource with the authorization code grant type to the resource server
+    * Attach the access token in the authentication header of the resource request  
+
+#### <a name="password">Password flow implementation</a>
+1. The user give the user credentials to the client
+2. The client makes a request to the authorization server with the user credentials using the password grant type
+    * The client obtains the access token
+3. The client calls the protected resource with the password grant type to the resource server
+    * Attach the access token in the authentication header of the resource request
+
+#### <a name="clientCredentials">Client credentials flow implementation</a>
+1. The client requests an access token with the client credential grant type
+    * send the request with the client credential only
+    * No user credential
+2. The client uses an access token to call resources with the client credential grant type to the resource server
+    * Attach the access token in the authentication header of the resource request
