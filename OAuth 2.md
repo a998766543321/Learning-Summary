@@ -2,6 +2,7 @@
 
 * OAuth 2 is referred to as an **authorization framework**
 * OAuth 2 implies multiple possible authentication flows
+* OAuth 2 doesn’t assume a specific implementation for tokens
 
 ## OAuth 2 components
 1. The resource server
@@ -18,9 +19,9 @@
 1. [Authorization code](#authorizationCode)
 2. [Password](#password)
     * less secure than authorization code since the user needs to share user credentials with the client
-3. Refresh token
+3. [Refresh token](#refreshToken)
 4. [Client credentials](#clientCredentials)
-    * Only used in system to system authorization.
+    * Only used in system to system authorization
     * No user credentials and refresh token invlovled
 
 #### <a name="authorizationCode">Authorization code flow implementation</a>
@@ -44,3 +45,9 @@
     * No user credential
 2. The client uses an access token to call resources with the client credential grant type to the resource server
     * Attach the access token in the authentication header of the resource request
+
+#### <a name="refreshToken">Refresh token flow implementation</a>
+1. The client received the refresh token together with the access token from the authorization server
+2. The access token should expire in a short time
+3. Once the access token is expired, the client request to refresh the access token by sending the refresh token to the authorization server
+4. The authorization server sends a new access token together with a new refresh token
