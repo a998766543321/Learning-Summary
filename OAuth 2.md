@@ -17,8 +17,10 @@
 
 ### OAuth 2 grants
 1. [Authorization code](#authorizationCode)
+    * We choose this grant type when the user doesn’t trust the client and doesn’t want to share their credentials with it.
 2. [Password](#password)
-    * less secure than authorization code since the user needs to share user credentials with the client
+    * You should apply this only if you can trust the client
+    * less secure compared to authorization code since the user needs to share user credentials with the client
 3. [Refresh token](#refreshToken)
     * Apply to single sign-on applications
 4. [Client credentials](#clientCredentials)
