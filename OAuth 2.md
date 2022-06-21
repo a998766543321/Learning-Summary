@@ -24,7 +24,8 @@
 3. [Refresh token](#refreshToken)
     * Apply to single sign-on applications
 4. [Client credentials](#clientCredentials)
-    * Only used in system to system authorization
+    * choose this grant type when the client needs to call an endpoint of the resource server that isn’t a resource of the user
+    * used in system to system authorization
     * No user credentials and refresh token invlovled
 
 #### <a name="authorizationCode">Authorization code flow implementation</a>
