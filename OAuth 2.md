@@ -20,6 +20,7 @@
 2. [Password](#password)
     * less secure than authorization code since the user needs to share user credentials with the client
 3. [Refresh token](#refreshToken)
+    * Apply to single sign-on applications
 4. [Client credentials](#clientCredentials)
     * Only used in system to system authorization
     * No user credentials and refresh token invlovled
