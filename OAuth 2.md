@@ -28,8 +28,9 @@
 #### <a name="authorizationCode">Authorization code flow implementation</a>
 1. The user makes the authentication request with the authorization code grant type
     * The user doesn’t send the credentials to the client but to the authorization server directly
+    * The server returns an authorization code to the client
 2. The client obtains an access token with the authorization code grant type
-    * The client sends the access code obtained in step 1 to the authorization server
+    * The client sends the authorization code obtained in step 1 to the authorization server
 3. The client calls the protected resource with the authorization code grant type to the resource server
     * Attach the access token in the authentication header of the resource request  
 
