@@ -59,3 +59,10 @@
 2. The access token should expire in a short time
 3. Once the access token is expired, the client request to refresh the access token by sending the refresh token to the authorization server
 4. The authorization server sends a new access token together with a new refresh token
+
+## Token Validation approachs at the Resource Server
+1. Allows the resource server to directly call the authorization server to verify an issued token
+2. Blackboarding
+    * authorization server stores tokens in the a common database, resource server fetch the token from this db
+3. The authorization server signs the token when issuing it. The resource server validates the signature.
+    * it generally uses JSON Web Tokens (JWTs)
