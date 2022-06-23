@@ -18,6 +18,7 @@
 ### OAuth 2 grants
 1. [Authorization code](#authorizationCode)
     * We choose this grant type when the user doesn’t trust the client and doesn’t want to share their credentials with it.
+    * Mind that an authorization code can only be used once for making a request for access token.
 2. [Password](#password)
     * You should apply this only if you can trust the client
     * less secure compared to authorization code since the user needs to share user credentials with the client
