@@ -28,6 +28,8 @@
     * choose this grant type when the client needs to call an endpoint of the resource server that isn’t a resource of the user
     * used in system to system authorization
     * No user credentials and refresh token invlovled
+    * Make sure that you don’t offer it access to the same scopes as flows that require user credentials.
+    * Otherwise, you might allow the client access to the users' resources without needing the permission of the user
 
 #### <a name="authorizationCode">Authorization code flow implementation</a>
 1. The user makes the authentication request with the authorization code grant type
