@@ -4,6 +4,7 @@
 
 # Pharse
 * as such
+    - therefore
 * for instance 
 * honored over
     - then Activity A's request (as defined in the intent) is honored over Activity B's request (as defined in its manifest).
