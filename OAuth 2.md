@@ -64,5 +64,13 @@
 1. Allows the resource server to directly call the authorization server to verify an issued token
 2. Blackboarding
     * authorization server stores tokens in the a common database, resource server fetch the token from this db
+    * The db may become the bottle-neck since the traffic increases
+    * TokenStore manges tokens in Spring Security
+    * Once authentication finishes, the authorization server uses the TokenStore to generate a token
+    * For the resource server, the authentication filter uses TokenStore to validate the token and find the user details that it later uses for authorization.
+        * JdbcTokenStore expects you to have two tables in the database
+        * one table to store access tokens (the name for this table should be oauth_access_token)
+        * one table to store refresh tokens (the name for this table should be oauth_refresh_token)
+        * The table names can be overriden too
 3. The authorization server signs the token with its PRIVATE KEY when issuing it. The resource server validates the signature.
     * it generally uses JSON Web Tokens (JWTs)
