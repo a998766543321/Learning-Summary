@@ -20,3 +20,9 @@
 * It's considered a best practice to set propTypes when you know the type of a prop ahead of time.
 * As we alluded to above, applications pending my approval are showing under this tab.
 * Try informing the user tacitly as this field is selected. We should make minor tweaks before record insertion.
+
+# Examples
+* For the sake of brevity, the styling of my example will be very rudimentary, but be unique with your styling!
+* It's considered a best practice to set propTypes when you know the type of a prop ahead of time.
+* As we alluded to above, applications pending my approval are showing under this tab.
+* Try informing the user tacitly as this field is selected. We should make minor tweaks before record insertion.
