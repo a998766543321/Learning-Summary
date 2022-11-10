@@ -1,1 +1,1 @@
-[alt text]([http://url/to/img.png](https://github.com/a998766543321/Learning-Summary/blob/main/images/stellaCover.jpg))
+![alt text]([http://url/to/img.png](https://github.com/a998766543321/Learning-Summary/blob/main/images/stellaCover.jpg))
