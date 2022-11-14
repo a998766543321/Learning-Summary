@@ -1,1 +1,1 @@
-![Alt text](stellaCover.jpg?raw=true "Test")
+![Alt text](Docker Deamon.png?raw=true "Test")
