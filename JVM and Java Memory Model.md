@@ -21,4 +21,4 @@ However, since JVMs are developed to run and communicate with the underlying har
 
 ## JVM components
 1. Class Loader Subsystem
-  * It loads, links, and initializes the class file (.class) when it refers to a class for the first time at runtime (not compile time).
+    * It loads, links, and initializes the class file (.class) when it refers to a class for the first time at runtime (not compile time).
