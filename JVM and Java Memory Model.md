@@ -73,6 +73,7 @@ Reference:
 
 ## JVM Memory Model
    1. Heap Memory
+
       ![Heap Memory.PNG](/images/Heap Memory.PNG?raw=true "Test")
 
       * Young Generation
@@ -92,4 +93,4 @@ Reference:
    4. Stack Memory
 
 Reference:
-[Understanding Java Memory Model]([https://medium.com/platform-engineer/understanding-jvm-architecture-22c0ddf09722](https://medium.com/platform-engineer/understanding-java-memory-model-1d0863f6d973))
+[Understanding Java Memory Model](https://medium.com/platform-engineer/understanding-jvm-architecture-22c0ddf09722](https://medium.com/platform-engineer/understanding-java-memory-model-1d0863f6d973)
