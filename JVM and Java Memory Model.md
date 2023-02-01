@@ -69,3 +69,24 @@ However, since JVMs are developed to run and communicate with the underlying har
 
 Reference:
 [Understanding JVM Architecture](https://medium.com/platform-engineer/understanding-jvm-architecture-22c0ddf09722)
+
+
+## JVM Memory Model
+   1. Heap Memory
+      ![Heap Memory.PNG](/images/Heap Memory.PNG?raw=true "Test")
+
+      * Young Generation
+         * This is reserved for containing newly-allocated objects
+         * Young Gen includes three parts — Eden Memory and two Survivor Memory spaces (S0, S1)
+         * Most of the newly-created objects goes Eden space.
+         * When Eden space is filled with objects, Minor GC (a.k.a. Young Collection) is performed and all the survivor objects are moved to one of the survivor spaces.
+         * Minor GC also checks the survivor objects and move them to the other survivor space. So at a time, one of the survivor space is always empty.
+         * Objects that are survived after many cycles of GC, are moved to the Old generation memory space. Usually it’s done by setting a threshold for the age of the young generation objects before they become eligible to promote to Old generation.
+
+      * Old Generation
+         * This is reserved for containing long lived objects that could survive after many rounds of Minor GC
+         * When Old Gen space is full, Major GC (a.k.a. Old Collection) is performed (usually takes longer time)
+
+   2. Non-Heap Memory
+   3. Cache Memory
+   4. Stack Memory
