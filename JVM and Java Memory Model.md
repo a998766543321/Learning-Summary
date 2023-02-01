@@ -90,3 +90,6 @@ Reference:
    2. Non-Heap Memory
    3. Cache Memory
    4. Stack Memory
+
+Reference:
+[Understanding Java Memory Model]([https://medium.com/platform-engineer/understanding-jvm-architecture-22c0ddf09722](https://medium.com/platform-engineer/understanding-java-memory-model-1d0863f6d973))
