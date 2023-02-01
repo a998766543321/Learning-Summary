@@ -18,6 +18,7 @@ However, since JVMs are developed to run and communicate with the underlying har
 
 * JVM is only a specification, and its implementation is different from vendor to vendor
 * JVM resides on the RAM
+* JVM is multi-threaded
 
 ## JVM components
 1. Class Loader Subsystem
