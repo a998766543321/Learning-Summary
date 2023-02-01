@@ -66,3 +66,6 @@ However, since JVMs are developed to run and communicate with the underlying har
 
 
 ![JVM png](/images/JVM.png?raw=true "Test")
+
+Reference:
+[Understanding JVM Architecture](https://medium.com/platform-engineer/understanding-jvm-architecture-22c0ddf09722)
