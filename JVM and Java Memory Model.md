@@ -57,9 +57,12 @@ However, since JVMs are developed to run and communicate with the underlying har
 
 6. Native Method Libraries
   
-## Summary
+## JVM Summary
 * Java is considered as both interpreted and compiled Language.
 * By design, Java is slow due to dynamic linking and run-time interpreting.
 * JIT compiler compensate for the disadvantages of the interpreter for repeating operations by keeping a native code instead of bytecode.
 * The latest Java versions address performance bottlenecks in its original architecture.
 * JVM is only a specification. Vendors are free to customize, innovate, and improve its performance during the implementation.
+
+
+![JVM png](/images/JVM.png?raw=true "Test")
