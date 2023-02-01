@@ -73,7 +73,7 @@ Reference:[Understanding JVM Architecture](https://medium.com/platform-engineer/
 ## JVM Memory Model
    1. Heap Memory
 
-      ![Heap Memory.PNG](/images/Heap Memory.PNG?raw=true "Test")
+      ![Heap Memory.PNG](/images/HeapMemory.PNG?raw=true "Test")
 
       * Young Generation
          * This is reserved for containing newly-allocated objects
